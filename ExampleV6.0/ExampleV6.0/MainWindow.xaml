@@ -1,0 +1,28 @@
+﻿<Window x:Class="ExampleV6._0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExampleV6._0"
+        mc:Ignorable="d"
+        Title="Journey" Height="350" Width="500" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" MinHeight="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DataGrid CanUserResizeColumns="False" CanUserResizeRows="False" ToolTip="These are your journals" Grid.Row="1" SelectedItem="{Binding Path=selectedJournal,Mode=TwoWay}" ItemsSource="{Binding}" AutoGenerateColumns="True" x:Name="grid" Height="auto" MaxHeight="300" VerticalAlignment="Top" HorizontalAlignment="Center" Width="auto" VerticalGridLinesBrush="{x:Null}" IsReadOnly="True" Background="{x:Null}" BorderBrush="Black" Margin="0"/>
+        
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Left" Height="auto" Margin="0" VerticalAlignment="Center" Width="100">
+            <Button Content="Add Word" x:Name="btnAdd" Click="Add_Click" ToolTip="Add a word to the end of the text"/>
+            <Button Content="Remove Word" x:Name="btnRemove" Click="Remove_Click" ToolTip="Click buttons to remove them when this is RED" />
+        </WrapPanel>
+        <WrapPanel x:Name="btnWrap" Grid.Row="0" HorizontalAlignment="Center" Height="auto" Margin="0" VerticalAlignment="Center" Width="auto" MaxWidth="300" ToolTip="This is your text">
+
+        </WrapPanel>
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Right" Height="auto" Margin="0" FlowDirection="RightToLeft" VerticalAlignment="Center" Width="100">
+            <Button Content="Push Journal" x:Name="btnPush" Click="Push_Click" ToolTip="Submits the text to journals"/>
+            <Button Content="Pull Journal" x:Name="btnPull" Click="Pull_Click" ToolTip="Remove the journal and make it the current text"/>
+        </WrapPanel>
+    </Grid>
+</Window>
